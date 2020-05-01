@@ -2,28 +2,6 @@ import numpy as np
 import cv2
 import matplotlib.pyplot as plt
 
-## RGB image
-imgColor = cv2.imread('/Users/walterroaserrano/Desktop/UniversiteChampagneArdenne/reconnaissanceFormes/projetReconaissanceFormes/example1.jpg')
-
-## Grey image 
-img = cv2.imread('/Users/walterroaserrano/Desktop/UniversiteChampagneArdenne/reconnaissanceFormes/projetReconaissanceFormes/example1.jpg', 0)
-
-## To show the image
-cv2.imshow('Colored Image', imgColor)
-cv2.imshow('Grey Image', img)
-cv2.waitKey (0)
-cv2.destroyAllwindows()
-
-## The image size
-print (imgColor.shape)
-print (img.shape)
-
-## The number of pixels 
-img.size
-
-## Write an image 
-cv2.imwrite('gray_image.png', img)
-
 ## Implémentation LDP Kirsh Algorithm 
 def kirsch_filter(gray):
     if gray.ndim > 2:
@@ -77,8 +55,8 @@ def kirsch_filter(gray):
         )
     )
     return magn
-#Implémentation et plot des résultats 
 
+#Implémentation et plot des résultats 
 fg = cv2.imread("/Users/walterroaserrano/Desktop/UniversiteChampagneArdenne/reconnaissanceFormes/projetReconaissanceFormes/example1.jpg")
 fg_rgb = cv2.cvtColor(fg, cv2.COLOR_BGR2RGB)
 gray = cv2.cvtColor(fg_rgb, cv2.COLOR_RGB2GRAY)    
