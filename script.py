@@ -1,6 +1,6 @@
 import numpy as np
 import cv2
-
+import matplotlib.pyplot as plt
 
 ## RGB image
 imgColor = cv2.imread('/Users/walterroaserrano/Desktop/UniversiteChampagneArdenne/reconnaissanceFormes/projetReconaissanceFormes/example1.jpg')
@@ -24,6 +24,7 @@ img.size
 ## Write an image 
 cv2.imwrite('gray_image.png', img)
 
+## Implémentation LDP Kirsh Algorithm 
 def kirsch_filter(gray):
     if gray.ndim > 2:
         raise Exception("illegal argument: input must be a single channel image (gray)")
@@ -76,4 +77,14 @@ def kirsch_filter(gray):
         )
     )
     return magn
+#Implémentation et plot des résultats 
 
+fg = cv2.imread("/Users/walterroaserrano/Desktop/UniversiteChampagneArdenne/reconnaissanceFormes/projetReconaissanceFormes/example1.jpg")
+fg_rgb = cv2.cvtColor(fg, cv2.COLOR_BGR2RGB)
+gray = cv2.cvtColor(fg_rgb, cv2.COLOR_RGB2GRAY)    
+bin = kirsch_filter(gray)
+
+# show results 
+plt.imshow(bin, interpolation='none', cmap='gray')
+plt.xticks([]), plt.yticks([])
+plt.show()
