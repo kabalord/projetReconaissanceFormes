@@ -8,4 +8,4 @@ Implémentation Local Directional Pattern (LDP) - Face recognition with enhanced
 # python3 -m venv venv --system-site-packages
 
 --sur la rute du projet--
-#source venv/bin/activate
+# source venv/bin/activate
